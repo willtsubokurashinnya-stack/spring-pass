@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>チラシの答え＋春休みパス</title>
+  <style>
+    /* ===== リセット & ベース ===== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --blue:       #2563EB;
+      --blue-light: #EFF6FF;
+      --blue-mid:   #BFDBFE;
+      --pink:       #EC4899;
+      --pink-light: #FDF2F8;
+      --pink-mid:   #FBCFE8;
+      --yellow:     #FBBF24;
+      --yellow-bg:  #FFFBEB;
+      --text-dark:  #1E293B;
+      --text-mid:   #475569;
+      --text-light: #94A3B8;
+      --white:      #FFFFFF;
+      --radius-lg:  20px;
+      --radius-md:  14px;
+      --radius-sm:  10px;
+      --shadow-soft: 0 4px 24px rgba(37,99,235,0.10);
+      --shadow-btn:  0 4px 16px rgba(37,99,235,0.30);
+    }
+
+    html {
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3',
+                   'Noto Sans JP', 'Yu Gothic', 'Meiryo', sans-serif;
+      background: linear-gradient(160deg, #EFF6FF 0%, #FDF2F8 100%);
+      min-height: 100vh;
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ===== ページラッパー ===== */
+    .page {
+      max-width: 420px;
+      margin: 0 auto;
+      padding: 0 0 40px;
+    }
+
+    /* ===== ① ファーストビュー ===== */
+    .hero {
+      background: linear-gradient(135deg, var(--blue) 0%, #1D4ED8 50%, var(--pink) 100%);
+      padding: 36px 24px 32px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* 背景の円装飾 */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 160px; height: 160px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30px; left: -30px;
+      width: 120px; height: 120px;
+      background: rgba(251,191,36,0.15);
+      border-radius: 50%;
+    }
+
+    .hero-label {
+      display: inline-block;
+      background: var(--yellow);
+      color: #92400E;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      padding: 4px 14px;
+      border-radius: 99px;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+    }
+
+    .hero-question {
+      color: rgba(255,255,255,0.80);
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+      letter-spacing: 0.04em;
+    }
+
+    .hero-answer-box {
+      background: rgba(255,255,255,0.14);
+      border: 2px solid rgba(255,255,255,0.30);
+      border-radius: var(--radius-lg);
+      padding: 20px 24px 16px;
+      margin-bottom: 20px;
+      backdrop-filter: blur(4px);
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-answer-label {
+      color: rgba(255,255,255,0.70);
+      font-size: 0.85rem;
+      margin-bottom: 6px;
+    }
+
+    .hero-answer-num {
+      color: var(--yellow);
+      font-size: 4.5rem;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      text-shadow: 0 2px 16px rgba(0,0,0,0.20);
+    }
+
+    .hero-confirm {
+      color: #FFFFFF;
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* 小さな星・スパークル */
+    .spark {
+      display: inline-block;
+      font-style: normal;
+    }
+
+    /* ===== メインコンテンツ ===== */
+    .content {
+      padding: 0 16px;
+    }
+
+    /* ===== ② 共感コピー ===== */
+    .empathy {
+      margin-top: 20px;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 18px 20px;
+      box-shadow: var(--shadow-soft);
+      text-align: center;
+    }
+
+    .empathy-main {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--blue);
+      margin-bottom: 6px;
+    }
+
+    .empathy-sub {
+      font-size: 0.90rem;
+      color: var(--text-mid);
+    }
+
+    /* ===== ③ 春休みパスバッジ ===== */
+    .pass-wrap {
+      margin-top: 20px;
+      position: relative;
+    }
+
+    .pass-tag {
+      position: absolute;
+      top: -10px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--pink);
+      color: #fff;
+      font-size: 0.70rem;
+      font-weight: 800;
+      padding: 4px 16px;
+      border-radius: 99px;
+      white-space: nowrap;
+      z-index: 2;
+      letter-spacing: 0.05em;
+      box-shadow: 0 2px 10px rgba(236,72,153,0.35);
+    }
+
+    .pass-card {
+      background: linear-gradient(135deg, #1E40AF 0%, #2563EB 60%, #7C3AED 100%);
+      border-radius: var(--radius-lg);
+      padding: 28px 20px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 6px 30px rgba(37,99,235,0.25);
+    }
+
+    /* パスカード内の装飾線 */
+    .pass-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--yellow), var(--pink), var(--yellow));
+    }
+
+    .pass-deco {
+      position: absolute;
+      top: 14px; right: 16px;
+      font-size: 2.2rem;
+      opacity: 0.20;
+    }
+
+    .pass-title {
+      color: var(--yellow);
+      font-size: 1.05rem;
+      font-weight: 900;
+      letter-spacing: 0.10em;
+      margin-bottom: 4px;
+    }
+
+    .pass-big {
+      color: #FFFFFF;
+      font-size: 1.7rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+    }
+
+    .pass-limited {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(251,191,36,0.20);
+      border: 1px solid rgba(251,191,36,0.50);
+      color: var(--yellow);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 99px;
+    }
+
+    /* ===== ④ ベネフィットリスト ===== */
+    .benefits {
+      margin-top: 20px;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 20px 20px 16px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .benefits-title {
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--text-light);
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid #F1F5F9;
+    }
+
+    .benefit-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .benefit-icon {
+      flex-shrink: 0;
+      width: 36px; height: 36px;
+      background: var(--blue-light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .benefit-text {
+      flex: 1;
+    }
+
+    .benefit-main {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.4;
+    }
+
+    .benefit-sub {
+      font-size: 0.78rem;
+      color: var(--text-mid);
+      margin-top: 1px;
+    }
+
+    /* ===== ⑤ 一言訴求 ===== */
+    .catchcopy {
+      margin-top: 20px;
+      background: linear-gradient(135deg, var(--pink-light) 0%, var(--yellow-bg) 100%);
+      border: 2px solid var(--pink-mid);
+      border-radius: var(--radius-lg);
+      padding: 18px 20px;
+      text-align: center;
+    }
+
+    .catchcopy-main {
+      font-size: 1.20rem;
+      font-weight: 900;
+      color: var(--pink);
+      line-height: 1.5;
+    }
+
+    .catchcopy-sub {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      margin-top: 6px;
+    }
+
+    /* ===== ⑥⑦ フォーム ===== */
+    .form-section {
+      margin-top: 24px;
+    }
+
+    .form-section-title {
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: var(--text-dark);
+      text-align: center;
+      margin-bottom: 14px;
+    }
+
+    .form-section-title span {
+      color: var(--blue);
+    }
+
+    .form-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 22px 20px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .form-field {
+      margin-bottom: 6px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .form-label .required {
+      display: inline-block;
+      background: var(--pink);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 99px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    .form-note {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 14px 16px;
+      font-size: 1.05rem;
+      font-family: inherit;
+      border: 2px solid #E2E8F0;
+      border-radius: var(--radius-md);
+      background: #F8FAFC;
+      color: var(--text-dark);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none;
+    }
+
+    .form-input::placeholder {
+      color: #CBD5E1;
+      font-size: 0.95rem;
+    }
+
+    .form-input:focus {
+      border-color: var(--blue);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
+    }
+
+    /* 送信ボタン */
+    .submit-btn {
+      display: block;
+      width: 100%;
+      margin-top: 16px;
+      padding: 17px 24px;
+      background: linear-gradient(135deg, var(--blue) 0%, #1D4ED8 100%);
+      color: #fff;
+      font-family: inherit;
+      font-size: 1.15rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      box-shadow: var(--shadow-btn);
+      transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
+      position: relative;
+      overflow: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .submit-btn::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 60px; height: 100%;
+      background: rgba(255,255,255,0.20);
+      transform: skewX(-20deg);
+      transition: left 0.4s;
+    }
+
+    .submit-btn:hover::before,
+    .submit-btn:active::before {
+      left: 150%;
+    }
+
+    .submit-btn:active {
+      transform: scale(0.97);
+      box-shadow: 0 2px 8px rgba(37,99,235,0.25);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .btn-emoji {
+      font-style: normal;
+    }
+
+    /* 安心テキスト */
+    .form-safety {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      margin-top: 12px;
+      font-size: 0.75rem;
+      color: var(--text-light);
+    }
+
+    /* ===== ⑧ 送信後メッセージ（非表示 → 表示切り替え） ===== */
+    #form-view,
+    #success-view {
+      transition: opacity 0.3s ease;
+    }
+
+    #success-view {
+      display: none;
+    }
+
+    .success-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px 28px;
+      text-align: center;
+      box-shadow: var(--shadow-soft);
+      border-top: 4px solid var(--blue);
+    }
+
+    .success-icon {
+      font-size: 3.5rem;
+      margin-bottom: 14px;
+      display: block;
+      animation: pop 0.5s cubic-bezier(0.36,0.07,0.19,0.97) both;
+    }
+
+    @keyframes pop {
+      0%   { transform: scale(0.5); opacity: 0; }
+      70%  { transform: scale(1.15); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .success-title {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--blue);
+      margin-bottom: 6px;
+    }
+
+    .success-sub {
+      font-size: 1.00rem;
+      color: var(--text-dark);
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    .success-box {
+      background: var(--yellow-bg);
+      border: 2px solid var(--yellow);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      text-align: left;
+    }
+
+    .success-box p {
+      font-size: 0.90rem;
+      color: var(--text-dark);
+      font-weight: 600;
+      line-height: 1.7;
+    }
+
+    .success-box strong {
+      color: var(--pink);
+    }
+
+    .success-name {
+      display: inline-block;
+      background: var(--blue-light);
+      color: var(--blue);
+      font-weight: 900;
+      padding: 2px 12px;
+      border-radius: 99px;
+      font-size: 1.05rem;
+      margin-bottom: 14px;
+    }
+
+    /* ===== エラー表示 ===== */
+    .error-msg {
+      display: none;
+      color: #EF4444;
+      font-size: 0.80rem;
+      font-weight: 700;
+      margin-top: 6px;
+      padding: 6px 10px;
+      background: #FEF2F2;
+      border-radius: 8px;
+      border-left: 3px solid #EF4444;
+    }
+
+    .error-msg.show {
+      display: block;
+    }
+
+    /* ===== フッター ===== */
+    .footer {
+      text-align: center;
+      padding: 24px 16px 0;
+      font-size: 0.72rem;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    /* ===== アニメーション（フェードイン） ===== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-up {
+      animation: fadeUp 0.5s ease both;
+    }
+
+    .fade-up:nth-child(2) { animation-delay: 0.08s; }
+    .fade-up:nth-child(3) { animation-delay: 0.14s; }
+    .fade-up:nth-child(4) { animation-delay: 0.20s; }
+    .fade-up:nth-child(5) { animation-delay: 0.26s; }
+    .fade-up:nth-child(6) { animation-delay: 0.32s; }
+
+    /* ===== スクロールバー非表示 ===== */
+    ::-webkit-scrollbar { display: none; }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- =========================================
+       ① ファーストビュー：答え表示
+  ========================================= -->
+  <header class="hero fade-up">
+    <span class="hero-label">✨ チラシの答え</span>
+    <p class="hero-question">さっきのクイズ、解けた？</p>
+
+    <div class="hero-answer-box">
+      <p class="hero-answer-label">答えは…</p>
+      <!-- ★ここの数字を実際の答えに変更してください -->
+      <div class="hero-answer-num">64</div>
+    </div>
+
+    <p class="hero-confirm">できた？できなかった？<br>どっちでもOK 👇</p>
+  </header>
+
+  <main class="content">
+
+    <!-- =========================================
+         ② 共感・つなぎコピー
+    ========================================= -->
+    <section class="empathy fade-up">
+      <p class="empathy-main">「あとちょっとだったのに！」</p>
+      <p class="empathy-sub">分かりそうで分からない、あの感じ。<br>実はそこが一番のびしろ 🌱</p>
+    </section>
+
+    <!-- =========================================
+         ③ 春休み限定パス
+    ========================================= -->
+    <div class="pass-wrap fade-up">
+      <span class="pass-tag">📲 このQRから来た人だけ</span>
+      <div class="pass-card">
+        <span class="pass-deco">🎫</span>
+        <p class="pass-title">SPRING PASS</p>
+        <p class="pass-big">春休み限定パス</p>
+        <span class="pass-limited">⏰ 期間限定 &nbsp;|&nbsp; 先着順</span>
+      </div>
+    </div>
+
+    <!-- =========================================
+         ④ ベネフィット
+    ========================================= -->
+    <section class="benefits fade-up">
+      <p class="benefits-title">このパスで何ができるの？</p>
+
+      <div class="benefit-item">
+        <div class="benefit-icon">⏱️</div>
+        <div class="benefit-text">
+          <p class="benefit-main">30分だけでもOK</p>
+          <p class="benefit-sub">時間に縛られない、自由なスタイル</p>
+        </div>
+      </div>
+
+      <div class="benefit-item">
+        <div class="benefit-icon">📝</div>
+        <div class="benefit-text">
+          <p class="benefit-main">学校のワーク・課題でもOK</p>
+          <p class="benefit-sub">集中できる環境でサクッと終わらせよう</p>
+        </div>
+      </div>
+
+      <div class="benefit-item">
+        <div class="benefit-icon">🙋</div>
+        <div class="benefit-text">
+          <p class="benefit-main">分からないとこを聞いてOK</p>
+          <p class="benefit-sub">先生がその場でいっしょに考えるよ</p>
+        </div>
+      </div>
+
+      <div class="benefit-item">
+        <div class="benefit-icon">👫</div>
+        <div class="benefit-text">
+          <p class="benefit-main">友達と一緒に来てもOK</p>
+          <p class="benefit-sub">ひとりで来るのが不安なら一緒に</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+         ⑤ 一言訴求
+    ========================================= -->
+    <section class="catchcopy fade-up">
+      <p class="catchcopy-main">「ちょっとだけ」でいい。<br>気軽に来てね🙌</p>
+      <p class="catchcopy-sub">テストの申し込みじゃないよ。入塾の勧誘もなし。<br>ただ、来てみてほしいだけ。</p>
+    </section>
+
+    <!-- =========================================
+         ⑥⑦ フォーム ＋ 送信ボタン
+    ========================================= -->
+    <section class="form-section fade-up">
+      <h2 class="form-section-title"><span>名前</span>を入れてパスをゲット</h2>
+
+      <!-- フォーム画面 -->
+      <div id="form-view">
+        <div class="form-card">
+
+          <div class="form-field">
+            <label class="form-label" for="name-input">
+              名前（ニックネームOK）
+              <span class="required">必須</span>
+            </label>
+            <p class="form-note">🔒 個人情報として使いません</p>
+            <input
+              type="text"
+              id="name-input"
+              class="form-input"
+              placeholder="例：たくや、ゆいちゃん"
+              maxlength="20"
+              autocomplete="off"
+              inputmode="text"
+            />
+            <p class="error-msg" id="name-error">👆 名前を入れてね</p>
+          </div>
+
+          <button class="submit-btn" id="submit-btn" type="button" onclick="handleSubmit()">
+            <span class="btn-emoji">🎫</span> 席を確保する
+          </button>
+
+          <p class="form-safety">🔒 送信内容は外部に共有されません</p>
+        </div>
+      </div>
+
+      <!-- =========================================
+           ⑧ 送信後メッセージ（成功画面）
+      ========================================= -->
+      <div id="success-view">
+        <div class="success-card">
+          <span class="success-icon">🎉</span>
+          <p class="success-title">予約OK！</p>
+          <span class="success-name" id="success-name-display"></span>
+          <p class="success-sub">
+            春休み中、<br>
+            好きなタイミングで来てOK
+          </p>
+          <div class="success-box">
+            <p>
+              来たら受付で<br>
+              <strong>「QR見た！」</strong>って伝えてね🙌<br><br>
+              予約票とか要らないよ。<br>
+              名前だけ言ってくれれば大丈夫 👍
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <p>Copyright © 学習塾名</p>
+    <p>春休み期間：3月xx日〜4月xx日</p>
+  </footer>
+
+</div><!-- /.page -->
+
+<!-- =========================================
+     JavaScript
+========================================= -->
+<script>
+  // フォーム送信処理
+  function handleSubmit() {
+    var nameInput  = document.getElementById('name-input');
+    var errorMsg   = document.getElementById('name-error');
+    var submitBtn  = document.getElementById('submit-btn');
+    var formView   = document.getElementById('form-view');
+    var successView = document.getElementById('success-view');
+    var successName = document.getElementById('success-name-display');
+
+    var name = nameInput.value.trim();
+
+    // バリデーション
+    if (!name) {
+      errorMsg.classList.add('show');
+      nameInput.focus();
+      // シェイクアニメーション
+      nameInput.style.borderColor = '#EF4444';
+      nameInput.style.animation = 'none';
+      setTimeout(function() {
+        nameInput.style.animation = '';
+      }, 10);
+      return;
+    }
+
+    // エラークリア
+    errorMsg.classList.remove('show');
+    nameInput.style.borderColor = '';
+
+    // ボタンを無効化（二重送信防止）
+    submitBtn.disabled = true;
+    submitBtn.textContent = '送信中…';
+
+    // 送信処理（ダミー：0.6秒後に成功画面へ）
+    setTimeout(function() {
+      // 成功画面に名前を表示
+      successName.textContent = name + ' さん、登録完了！';
+
+      // 画面切り替え
+      formView.style.opacity = '0';
+      setTimeout(function() {
+        formView.style.display = 'none';
+        successView.style.display = 'block';
+        // フェードイン
+        successView.style.opacity = '0';
+        setTimeout(function() {
+          successView.style.opacity = '1';
+          // 成功カードまでスクロール
+          successView.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 30);
+      }, 300);
+    }, 600);
+  }
+
+  // Enterキーで送信
+  document.getElementById('name-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      handleSubmit();
+    }
+  });
+
+  // 入力中はエラー解除
+  document.getElementById('name-input').addEventListener('input', function() {
+    var errorMsg = document.getElementById('name-error');
+    if (this.value.trim()) {
+      errorMsg.classList.remove('show');
+      this.style.borderColor = '';
+    }
+  });
+</script>
+
+</body>
+</html>
