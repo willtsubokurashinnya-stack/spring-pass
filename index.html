@@ -32,9 +32,7 @@
       --shadow-btn:  0 4px 16px rgba(37,99,235,0.30);
     }
 
-    html {
-      font-size: 16px;
-    }
+    html { font-size: 16px; }
 
     body {
       font-family: 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3',
@@ -45,7 +43,6 @@
       overflow-x: hidden;
     }
 
-    /* ===== ページラッパー ===== */
     .page {
       max-width: 420px;
       margin: 0 auto;
@@ -60,8 +57,6 @@
       position: relative;
       overflow: hidden;
     }
-
-    /* 背景の円装飾 */
     .hero::before {
       content: '';
       position: absolute;
@@ -78,7 +73,6 @@
       background: rgba(251,191,36,0.15);
       border-radius: 50%;
     }
-
     .hero-label {
       display: inline-block;
       background: var(--yellow);
@@ -89,16 +83,13 @@
       padding: 4px 14px;
       border-radius: 99px;
       margin-bottom: 18px;
-      text-transform: uppercase;
     }
-
     .hero-question {
       color: rgba(255,255,255,0.80);
       font-size: 0.95rem;
       margin-bottom: 10px;
       letter-spacing: 0.04em;
     }
-
     .hero-answer-box {
       background: rgba(255,255,255,0.14);
       border: 2px solid rgba(255,255,255,0.30);
@@ -109,13 +100,11 @@
       position: relative;
       z-index: 1;
     }
-
     .hero-answer-label {
       color: rgba(255,255,255,0.70);
       font-size: 0.85rem;
       margin-bottom: 6px;
     }
-
     .hero-answer-num {
       color: var(--yellow);
       font-size: 4.5rem;
@@ -124,7 +113,6 @@
       letter-spacing: -0.02em;
       text-shadow: 0 2px 16px rgba(0,0,0,0.20);
     }
-
     .hero-confirm {
       color: #FFFFFF;
       font-size: 1.3rem;
@@ -134,16 +122,8 @@
       z-index: 1;
     }
 
-    /* 小さな星・スパークル */
-    .spark {
-      display: inline-block;
-      font-style: normal;
-    }
-
     /* ===== メインコンテンツ ===== */
-    .content {
-      padding: 0 16px;
-    }
+    .content { padding: 0 16px; }
 
     /* ===== ② 共感コピー ===== */
     .empathy {
@@ -154,25 +134,22 @@
       box-shadow: var(--shadow-soft);
       text-align: center;
     }
-
     .empathy-main {
       font-size: 1.15rem;
       font-weight: 800;
       color: var(--blue);
       margin-bottom: 6px;
     }
-
     .empathy-sub {
       font-size: 0.90rem;
       color: var(--text-mid);
     }
 
-    /* ===== ③ 春休みパスバッジ ===== */
+    /* ===== ③ 春休み限定パス ===== */
     .pass-wrap {
       margin-top: 20px;
       position: relative;
     }
-
     .pass-tag {
       position: absolute;
       top: -10px; left: 50%;
@@ -188,7 +165,6 @@
       letter-spacing: 0.05em;
       box-shadow: 0 2px 10px rgba(236,72,153,0.35);
     }
-
     .pass-card {
       background: linear-gradient(135deg, #1E40AF 0%, #2563EB 60%, #7C3AED 100%);
       border-radius: var(--radius-lg);
@@ -198,8 +174,6 @@
       overflow: hidden;
       box-shadow: 0 6px 30px rgba(37,99,235,0.25);
     }
-
-    /* パスカード内の装飾線 */
     .pass-card::before {
       content: '';
       position: absolute;
@@ -207,14 +181,12 @@
       height: 3px;
       background: linear-gradient(90deg, var(--yellow), var(--pink), var(--yellow));
     }
-
     .pass-deco {
       position: absolute;
       top: 14px; right: 16px;
       font-size: 2.2rem;
       opacity: 0.20;
     }
-
     .pass-title {
       color: var(--yellow);
       font-size: 1.05rem;
@@ -222,7 +194,6 @@
       letter-spacing: 0.10em;
       margin-bottom: 4px;
     }
-
     .pass-big {
       color: #FFFFFF;
       font-size: 1.7rem;
@@ -230,7 +201,6 @@
       letter-spacing: 0.04em;
       margin-bottom: 4px;
     }
-
     .pass-limited {
       display: inline-flex;
       align-items: center;
@@ -244,7 +214,7 @@
       border-radius: 99px;
     }
 
-    /* ===== ④ ベネフィットリスト ===== */
+    /* ===== ④ ベネフィット ===== */
     .benefits {
       margin-top: 20px;
       background: var(--white);
@@ -252,7 +222,6 @@
       padding: 20px 20px 16px;
       box-shadow: var(--shadow-soft);
     }
-
     .benefits-title {
       font-size: 0.78rem;
       font-weight: 800;
@@ -262,7 +231,6 @@
       margin-bottom: 14px;
       text-align: center;
     }
-
     .benefit-item {
       display: flex;
       align-items: flex-start;
@@ -270,12 +238,10 @@
       padding: 10px 0;
       border-bottom: 1px solid #F1F5F9;
     }
-
     .benefit-item:last-child {
       border-bottom: none;
       padding-bottom: 0;
     }
-
     .benefit-icon {
       flex-shrink: 0;
       width: 36px; height: 36px;
@@ -286,18 +252,13 @@
       justify-content: center;
       font-size: 1.1rem;
     }
-
-    .benefit-text {
-      flex: 1;
-    }
-
+    .benefit-text { flex: 1; }
     .benefit-main {
       font-size: 0.95rem;
       font-weight: 700;
       color: var(--text-dark);
       line-height: 1.4;
     }
-
     .benefit-sub {
       font-size: 0.78rem;
       color: var(--text-mid);
@@ -313,14 +274,12 @@
       padding: 18px 20px;
       text-align: center;
     }
-
     .catchcopy-main {
       font-size: 1.20rem;
       font-weight: 900;
       color: var(--pink);
       line-height: 1.5;
     }
-
     .catchcopy-sub {
       font-size: 0.88rem;
       color: var(--text-mid);
@@ -328,10 +287,7 @@
     }
 
     /* ===== ⑥⑦ フォーム ===== */
-    .form-section {
-      margin-top: 24px;
-    }
-
+    .form-section { margin-top: 24px; }
     .form-section-title {
       font-size: 1.05rem;
       font-weight: 900;
@@ -339,22 +295,14 @@
       text-align: center;
       margin-bottom: 14px;
     }
-
-    .form-section-title span {
-      color: var(--blue);
-    }
-
+    .form-section-title span { color: var(--blue); }
     .form-card {
       background: var(--white);
       border-radius: var(--radius-lg);
       padding: 22px 20px;
       box-shadow: var(--shadow-soft);
     }
-
-    .form-field {
-      margin-bottom: 6px;
-    }
-
+    .form-field { margin-bottom: 6px; }
     .form-label {
       display: block;
       font-size: 0.85rem;
@@ -362,7 +310,6 @@
       color: var(--text-dark);
       margin-bottom: 8px;
     }
-
     .form-label .required {
       display: inline-block;
       background: var(--pink);
@@ -374,7 +321,6 @@
       margin-left: 6px;
       vertical-align: middle;
     }
-
     .form-note {
       font-size: 0.75rem;
       color: var(--text-light);
@@ -383,7 +329,6 @@
       align-items: center;
       gap: 4px;
     }
-
     .form-input {
       width: 100%;
       padding: 14px 16px;
@@ -397,12 +342,10 @@
       transition: border-color 0.2s, box-shadow 0.2s;
       -webkit-appearance: none;
     }
-
     .form-input::placeholder {
       color: #CBD5E1;
       font-size: 0.95rem;
     }
-
     .form-input:focus {
       border-color: var(--blue);
       background: #fff;
@@ -430,7 +373,6 @@
       overflow: hidden;
       -webkit-tap-highlight-color: transparent;
     }
-
     .submit-btn::before {
       content: '';
       position: absolute;
@@ -440,28 +382,31 @@
       transform: skewX(-20deg);
       transition: left 0.4s;
     }
-
     .submit-btn:hover::before,
-    .submit-btn:active::before {
-      left: 150%;
-    }
-
+    .submit-btn:active::before { left: 150%; }
     .submit-btn:active {
       transform: scale(0.97);
       box-shadow: 0 2px 8px rgba(37,99,235,0.25);
     }
-
     .submit-btn:disabled {
-      opacity: 0.5;
+      opacity: 0.6;
       cursor: not-allowed;
       transform: none;
     }
 
-    .btn-emoji {
-      font-style: normal;
+    /* 送信中スピナー */
+    .spinner {
+      display: inline-block;
+      width: 18px; height: 18px;
+      border: 3px solid rgba(255,255,255,0.4);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      vertical-align: middle;
+      margin-right: 6px;
     }
+    @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* 安心テキスト */
     .form-safety {
       display: flex;
       align-items: center;
@@ -470,83 +415,6 @@
       margin-top: 12px;
       font-size: 0.75rem;
       color: var(--text-light);
-    }
-
-    /* ===== ⑧ 送信後メッセージ（非表示 → 表示切り替え） ===== */
-    #form-view,
-    #success-view {
-      transition: opacity 0.3s ease;
-    }
-
-    #success-view {
-      display: none;
-    }
-
-    .success-card {
-      background: var(--white);
-      border-radius: var(--radius-lg);
-      padding: 32px 24px 28px;
-      text-align: center;
-      box-shadow: var(--shadow-soft);
-      border-top: 4px solid var(--blue);
-    }
-
-    .success-icon {
-      font-size: 3.5rem;
-      margin-bottom: 14px;
-      display: block;
-      animation: pop 0.5s cubic-bezier(0.36,0.07,0.19,0.97) both;
-    }
-
-    @keyframes pop {
-      0%   { transform: scale(0.5); opacity: 0; }
-      70%  { transform: scale(1.15); }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
-    .success-title {
-      font-size: 1.6rem;
-      font-weight: 900;
-      color: var(--blue);
-      margin-bottom: 6px;
-    }
-
-    .success-sub {
-      font-size: 1.00rem;
-      color: var(--text-dark);
-      font-weight: 700;
-      margin-bottom: 16px;
-      line-height: 1.6;
-    }
-
-    .success-box {
-      background: var(--yellow-bg);
-      border: 2px solid var(--yellow);
-      border-radius: var(--radius-md);
-      padding: 14px 18px;
-      text-align: left;
-    }
-
-    .success-box p {
-      font-size: 0.90rem;
-      color: var(--text-dark);
-      font-weight: 600;
-      line-height: 1.7;
-    }
-
-    .success-box strong {
-      color: var(--pink);
-    }
-
-    .success-name {
-      display: inline-block;
-      background: var(--blue-light);
-      color: var(--blue);
-      font-weight: 900;
-      padding: 2px 12px;
-      border-radius: 99px;
-      font-size: 1.05rem;
-      margin-bottom: 14px;
     }
 
     /* ===== エラー表示 ===== */
@@ -561,37 +429,96 @@
       border-radius: 8px;
       border-left: 3px solid #EF4444;
     }
+    .error-msg.show { display: block; }
 
-    .error-msg.show {
-      display: block;
-    }
-
-    /* ===== フッター ===== */
-    .footer {
+    /* 通信エラーバナー */
+    .network-error {
+      display: none;
+      margin-top: 12px;
+      padding: 10px 14px;
+      background: #FEF2F2;
+      border: 1px solid #FECACA;
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      color: #DC2626;
+      font-weight: 600;
       text-align: center;
-      padding: 24px 16px 0;
-      font-size: 0.72rem;
-      color: var(--text-light);
-      line-height: 1.8;
+      line-height: 1.5;
+    }
+    .network-error.show { display: block; }
+
+    /* ===== ⑧ 送信後メッセージ ===== */
+    #success-view { display: none; }
+
+    .success-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px 28px;
+      text-align: center;
+      box-shadow: var(--shadow-soft);
+      border-top: 4px solid var(--blue);
+    }
+    .success-icon {
+      font-size: 3.5rem;
+      margin-bottom: 14px;
+      display: block;
+      animation: pop 0.5s cubic-bezier(0.36,0.07,0.19,0.97) both;
+    }
+    @keyframes pop {
+      0%   { transform: scale(0.5); opacity: 0; }
+      70%  { transform: scale(1.15); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .success-title {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--blue);
+      margin-bottom: 6px;
+    }
+    .success-sub {
+      font-size: 1.00rem;
+      color: var(--text-dark);
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+    .success-box {
+      background: var(--yellow-bg);
+      border: 2px solid var(--yellow);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      text-align: left;
+    }
+    .success-box p {
+      font-size: 0.90rem;
+      color: var(--text-dark);
+      font-weight: 600;
+      line-height: 1.7;
+    }
+    .success-box strong { color: var(--pink); }
+    .success-name {
+      display: inline-block;
+      background: var(--blue-light);
+      color: var(--blue);
+      font-weight: 900;
+      padding: 2px 12px;
+      border-radius: 99px;
+      font-size: 1.05rem;
+      margin-bottom: 14px;
     }
 
-    /* ===== アニメーション（フェードイン） ===== */
+    /* ===== アニメーション ===== */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(16px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-
-    .fade-up {
-      animation: fadeUp 0.5s ease both;
-    }
-
+    .fade-up { animation: fadeUp 0.5s ease both; }
     .fade-up:nth-child(2) { animation-delay: 0.08s; }
     .fade-up:nth-child(3) { animation-delay: 0.14s; }
     .fade-up:nth-child(4) { animation-delay: 0.20s; }
     .fade-up:nth-child(5) { animation-delay: 0.26s; }
     .fade-up:nth-child(6) { animation-delay: 0.32s; }
 
-    /* ===== スクロールバー非表示 ===== */
     ::-webkit-scrollbar { display: none; }
   </style>
 </head>
@@ -599,35 +526,27 @@
 
 <div class="page">
 
-  <!-- =========================================
-       ① ファーストビュー：答え表示
-  ========================================= -->
+  <!-- ① ファーストビュー -->
   <header class="hero fade-up">
     <span class="hero-label">✨ チラシの答え</span>
     <p class="hero-question">さっきのクイズ、解けた？</p>
-
     <div class="hero-answer-box">
       <p class="hero-answer-label">答えは…</p>
       <!-- ★ここの数字を実際の答えに変更してください -->
       <div class="hero-answer-num">64</div>
     </div>
-
     <p class="hero-confirm">できた？できなかった？<br>どっちでもOK 👇</p>
   </header>
 
   <main class="content">
 
-    <!-- =========================================
-         ② 共感・つなぎコピー
-    ========================================= -->
+    <!-- ② 共感コピー -->
     <section class="empathy fade-up">
       <p class="empathy-main">「あとちょっとだったのに！」</p>
       <p class="empathy-sub">分かりそうで分からない、あの感じ。<br>実はそこが一番のびしろ 🌱</p>
     </section>
 
-    <!-- =========================================
-         ③ 春休み限定パス
-    ========================================= -->
+    <!-- ③ 春休み限定パス -->
     <div class="pass-wrap fade-up">
       <span class="pass-tag">📲 このQRから来た人だけ</span>
       <div class="pass-card">
@@ -638,12 +557,9 @@
       </div>
     </div>
 
-    <!-- =========================================
-         ④ ベネフィット
-    ========================================= -->
+    <!-- ④ ベネフィット -->
     <section class="benefits fade-up">
       <p class="benefits-title">このパスで何ができるの？</p>
-
       <div class="benefit-item">
         <div class="benefit-icon">⏱️</div>
         <div class="benefit-text">
@@ -651,7 +567,6 @@
           <p class="benefit-sub">時間に縛られない、自由なスタイル</p>
         </div>
       </div>
-
       <div class="benefit-item">
         <div class="benefit-icon">📝</div>
         <div class="benefit-text">
@@ -659,7 +574,6 @@
           <p class="benefit-sub">集中できる環境でサクッと終わらせよう</p>
         </div>
       </div>
-
       <div class="benefit-item">
         <div class="benefit-icon">🙋</div>
         <div class="benefit-text">
@@ -667,7 +581,6 @@
           <p class="benefit-sub">先生がその場でいっしょに考えるよ</p>
         </div>
       </div>
-
       <div class="benefit-item">
         <div class="benefit-icon">👫</div>
         <div class="benefit-text">
@@ -677,24 +590,19 @@
       </div>
     </section>
 
-    <!-- =========================================
-         ⑤ 一言訴求
-    ========================================= -->
+    <!-- ⑤ 一言訴求 -->
     <section class="catchcopy fade-up">
       <p class="catchcopy-main">「ちょっとだけ」でいい。<br>気軽に来てね🙌</p>
       <p class="catchcopy-sub">テストの申し込みじゃないよ。入塾の勧誘もなし。<br>ただ、来てみてほしいだけ。</p>
     </section>
 
-    <!-- =========================================
-         ⑥⑦ フォーム ＋ 送信ボタン
-    ========================================= -->
+    <!-- ⑥⑦ フォーム -->
     <section class="form-section fade-up">
       <h2 class="form-section-title"><span>名前</span>を入れてパスをゲット</h2>
 
       <!-- フォーム画面 -->
       <div id="form-view">
         <div class="form-card">
-
           <div class="form-field">
             <label class="form-label" for="name-input">
               名前（ニックネームOK）
@@ -714,24 +622,26 @@
           </div>
 
           <button class="submit-btn" id="submit-btn" type="button" onclick="handleSubmit()">
-            <span class="btn-emoji">🎫</span> 席を確保する
+            🎫 席を確保する
           </button>
+
+          <!-- 通信エラー表示 -->
+          <p class="network-error" id="network-error">
+            通信エラーが発生しました😥<br>もう一度タップしてみてね
+          </p>
 
           <p class="form-safety">🔒 送信内容は外部に共有されません</p>
         </div>
       </div>
 
-      <!-- =========================================
-           ⑧ 送信後メッセージ（成功画面）
-      ========================================= -->
+      <!-- ⑧ 送信後メッセージ -->
       <div id="success-view">
         <div class="success-card">
           <span class="success-icon">🎉</span>
           <p class="success-title">予約OK！</p>
           <span class="success-name" id="success-name-display"></span>
           <p class="success-sub">
-            春休み中、<br>
-            好きなタイミングで来てOK
+            春休み中、<br>好きなタイミングで来てOK
           </p>
           <div class="success-box">
             <p>
@@ -745,88 +655,123 @@
       </div>
 
     </section>
-
   </main>
 
-  <!-- フッター -->
-  <footer class="footer">
+  <footer style="text-align:center;padding:24px 16px 0;font-size:0.72rem;color:#94A3B8;line-height:1.8;">
+    <!-- ★塾名・期間を書き換えてください -->
     <p>Copyright © 学習塾名</p>
     <p>春休み期間：3月xx日〜4月xx日</p>
   </footer>
 
-</div><!-- /.page -->
+</div>
 
-<!-- =========================================
-     JavaScript
-========================================= -->
 <script>
+  // ==============================================
+  // ★★★ここにGASのWebアプリURLを貼り付けてください★★★
+  // 例: 'https://script.google.com/macros/s/AKfyc.../exec'
+  // ==============================================
+  var GAS_URL = 'https://script.google.com/macros/s/AKfycbx7zXAibmjqQbYO1ZUihdP-A5VCV7c2uibn7H4RepFysTTRUy9z60etZilr43MJn4GQ/exec';
+
+  // ----------------------------------------------
   // フォーム送信処理
+  // ----------------------------------------------
   function handleSubmit() {
-    var nameInput  = document.getElementById('name-input');
-    var errorMsg   = document.getElementById('name-error');
-    var submitBtn  = document.getElementById('submit-btn');
-    var formView   = document.getElementById('form-view');
-    var successView = document.getElementById('success-view');
-    var successName = document.getElementById('success-name-display');
+    var nameInput    = document.getElementById('name-input');
+    var errorMsg     = document.getElementById('name-error');
+    var networkError = document.getElementById('network-error');
+    var submitBtn    = document.getElementById('submit-btn');
+    var formView     = document.getElementById('form-view');
+    var successView  = document.getElementById('success-view');
+    var successName  = document.getElementById('success-name-display');
 
     var name = nameInput.value.trim();
 
-    // バリデーション
+    // --- バリデーション ---
     if (!name) {
       errorMsg.classList.add('show');
-      nameInput.focus();
-      // シェイクアニメーション
       nameInput.style.borderColor = '#EF4444';
-      nameInput.style.animation = 'none';
-      setTimeout(function() {
-        nameInput.style.animation = '';
-      }, 10);
+      nameInput.focus();
+      return;
+    }
+    errorMsg.classList.remove('show');
+    networkError.classList.remove('show');
+    nameInput.style.borderColor = '';
+
+    // --- ボタンを送信中状態に ---
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span class="spinner"></span>送信中…';
+
+    // --- GASへPOST送信（fetchが使えない環境用にImage Ping方式も併用）---
+    sendToGAS(name, function(success) {
+      if (success) {
+        // 成功：画面切り替え
+        successName.textContent = name + ' さん、登録完了！';
+        formView.style.opacity = '0';
+        formView.style.transition = 'opacity 0.3s';
+        setTimeout(function() {
+          formView.style.display = 'none';
+          successView.style.display = 'block';
+          successView.style.opacity = '0';
+          successView.style.transition = 'opacity 0.3s';
+          setTimeout(function() {
+            successView.style.opacity = '1';
+            successView.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 30);
+        }, 300);
+      } else {
+        // 失敗：エラーメッセージ表示・ボタン復活
+        networkError.classList.add('show');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '🎫 席を確保する';
+      }
+    });
+  }
+
+  // ----------------------------------------------
+  // GASへのデータ送信
+  // fetch → 失敗時は no-cors フォールバック
+  // ----------------------------------------------
+  function sendToGAS(name, callback) {
+    // GAS URLが未設定の場合はダミー成功（開発用）
+    if (GAS_URL === 'YOUR_GAS_URL_HERE') {
+      console.warn('[dev] GAS_URL未設定のためダミー送信');
+      setTimeout(function() { callback(true); }, 800);
       return;
     }
 
-    // エラークリア
-    errorMsg.classList.remove('show');
-    nameInput.style.borderColor = '';
+    var params = new URLSearchParams({ name: name });
 
-    // ボタンを無効化（二重送信防止）
-    submitBtn.disabled = true;
-    submitBtn.textContent = '送信中…';
-
-    // 送信処理（ダミー：0.6秒後に成功画面へ）
-    setTimeout(function() {
-      // 成功画面に名前を表示
-      successName.textContent = name + ' さん、登録完了！';
-
-      // 画面切り替え
-      formView.style.opacity = '0';
-      setTimeout(function() {
-        formView.style.display = 'none';
-        successView.style.display = 'block';
-        // フェードイン
-        successView.style.opacity = '0';
-        setTimeout(function() {
-          successView.style.opacity = '1';
-          // 成功カードまでスクロール
-          successView.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 30);
-      }, 300);
-    }, 600);
+    // ① まずfetchで送信を試みる（JSONレスポンス確認）
+    fetch(GAS_URL, {
+      method: 'POST',
+      mode: 'no-cors',   // GASはCORSヘッダーを返さないためno-cors
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: params.toString()
+    })
+    .then(function() {
+      // no-corsでは成功/失敗を判定できないが、エラーなければ成功扱い
+      callback(true);
+    })
+    .catch(function(err) {
+      console.error('送信失敗:', err);
+      callback(false);
+    });
   }
 
-  // Enterキーで送信
+  // ----------------------------------------------
+  // 入力中エラー解除 / Enterキー送信
+  // ----------------------------------------------
+  document.getElementById('name-input').addEventListener('input', function() {
+    if (this.value.trim()) {
+      document.getElementById('name-error').classList.remove('show');
+      this.style.borderColor = '';
+    }
+  });
+
   document.getElementById('name-input').addEventListener('keydown', function(e) {
     if (e.key === 'Enter') {
       e.preventDefault();
       handleSubmit();
-    }
-  });
-
-  // 入力中はエラー解除
-  document.getElementById('name-input').addEventListener('input', function() {
-    var errorMsg = document.getElementById('name-error');
-    if (this.value.trim()) {
-      errorMsg.classList.remove('show');
-      this.style.borderColor = '';
     }
   });
 </script>
